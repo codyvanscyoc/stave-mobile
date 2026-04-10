@@ -58,9 +58,13 @@ function NoteRow({ note, mode, onPress, onDelete, C, fs }: {
           </Text>
         </View>
         {!!preview && (
-          <Text style={[rowStyles.rowPreview, { color: C.text2, fontFamily: Font.regular, fontSize: fs(12) }]} numberOfLines={2}>
-            {preview}
-          </Text>
+          note.locked
+            ? <Text style={[rowStyles.rowPreview, { color: C.text3, fontFamily: Font.regular, fontSize: fs(12) }]} numberOfLines={1}>
+                {'░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░'}
+              </Text>
+            : <Text style={[rowStyles.rowPreview, { color: C.text2, fontFamily: Font.regular, fontSize: fs(12) }]} numberOfLines={2}>
+                {preview}
+              </Text>
         )}
       </TouchableOpacity>
     </Swipeable>
