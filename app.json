@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "Stave",
+    "slug": "stave-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "scheme": "stave",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1c1c1e"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.stave.mobile",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Stave uses Face ID to unlock your locked notes."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1c1c1e"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.stave.mobile"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "@react-native-community/datetimepicker",
+      "expo-local-authentication"
+    ]
+  }
+}
