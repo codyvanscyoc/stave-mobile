@@ -53,6 +53,9 @@ function NoteRow({ note, mode, onPress, onDelete, C, fs }: {
           <Text style={[rowStyles.rowTitle, { color, fontFamily: Font.medium, fontSize: fs(14) }]} numberOfLines={1}>
             {note.title || 'untitled'}
           </Text>
+          {note.locked && (
+            <Feather name="lock" size={fs(11)} color={C.text3} style={{ marginRight: 6 }} />
+          )}
           <Text style={[rowStyles.rowDate, { color: C.text3, fontFamily: Font.regular, fontSize: fs(11) }]}>
             {formatDate(note.filename)}
           </Text>

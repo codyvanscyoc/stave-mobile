@@ -80,15 +80,21 @@ export default function NoteScreen() {
 
   const toggleLock = useCallback(() => {
     if (!note) return
+    // Save immediately (not via autosave queue) so the home list
+    // sees the correct locked state when useFocusEffect reloads it
     if (!note.locked) {
-      // Lock immediately — no auth needed (like locking your phone)
-      update('locked', true)
-      setAuthPassed(false)  // hide content right away
+      const updated = { ...note, locked: true }
+      setNote(updated)
+      latestNote.current = updated
+      saveNote(updated)
+      setAuthPassed(false)
     } else {
-      // Already authenticated to view — remove lock permanently
-      update('locked', false)
+      const updated = { ...note, locked: false }
+      setNote(updated)
+      latestNote.current = updated
+      saveNote(updated)
     }
-  }, [note, update])
+  }, [note])
 
   useEffect(() => {
     if (!note) return
