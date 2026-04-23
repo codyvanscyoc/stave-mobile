@@ -48,6 +48,12 @@ export function parseNote(raw: string, filename: string, mode: NoteMode): Note {
         tasks[tasks.length - 1].reminder = reminderMatch[1].trim()
         continue
       }
+      // id line attached to previous task — links a phase copy on desktop
+      const idMatch = line.match(/^\s+id: (.+)/)
+      if (idMatch && tasks.length > 0) {
+        tasks[tasks.length - 1].id = idMatch[1].trim()
+        continue
+      }
       continue
     }
 

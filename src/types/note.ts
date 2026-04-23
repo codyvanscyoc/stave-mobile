@@ -4,6 +4,7 @@ export interface Task {
   text: string
   done: boolean
   reminder?: string // ISO date string e.g. "2026-04-08T09:00"
+  id?: string       // stable id shared with any phase-copy on desktop
 }
 
 export interface Note {

@@ -30,6 +30,9 @@ export function serializeNote(note: Note): string {
     lines.push('## tasks')
     for (const task of note.tasks) {
       lines.push(`- [${task.done ? 'x' : ' '}] ${task.text}`)
+      if (task.id) {
+        lines.push(`  id: ${task.id}`)
+      }
       if (task.reminder) {
         lines.push(`  reminder: ${task.reminder}`)
       }
